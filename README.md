@@ -132,8 +132,14 @@ Responses are scored on a 5-point scale based on:
 
 Contributions are welcome! Please feel free to submit issues and pull requests.
 
-## 📮 Contact
+## 📮 Contact Us
 
 For questions or suggestions, please:
+
 - Open an issue on GitHub
-- Contact the project maintainers 
+
+- Contact the project maintainers ：
+
+  Ming Zhang: mingzhang23@m.fudan.edu.cn
+
+  Yujiong Shen: shenyj22@m.fudan.edu.cn 
