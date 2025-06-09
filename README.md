@@ -5,6 +5,7 @@
 
 </div>
 
+> **Note:** For the Chinese version of this README, please refer to [README_zh.md](README_zh.md).
 
 ## 📚 Overview
 
@@ -14,36 +15,63 @@ LLMEval-Med provides a comprehensive, physician-validated benchmark for evaluati
 
 ```
 .
-├── dataset.json           # Medical domain evaluation dataset
-├── Answer.py             # Script for getting model responses
-└── Evaluate.py           # Script for evaluating model responses
+├── dataset/
+│   └── dataset.json       # Medical domain evaluation dataset
+├── evaluate/
+│   ├── Answer.py          # Script for getting model responses
+│   └── Evaluate.py        # Script for evaluating model responses
 ```
 
 ## 💾 Dataset Structure
 
-The `dataset.json` file contains a collection of medical questions organized by different categories:
+## 💾 Dataset Structure
 
-- Medical Knowledge (医疗知识)
-- Medical Language Understanding (医疗语言理解)
-- Medical Reasoning (医疗推理)
-- Medical Ethics and Safety (医疗安全伦理)
-- Medical Text Generation (医疗文本生成)
+The `dataset/dataset.json` file contains a **test set** of 667 medical questions, organized by different categories:
 
-Each question includes:
-- Prompt
-- Group Code
-- Round Number (for multi-turn conversations)
-- Standard Answer
-- Evaluation Checklist
+- Medical Knowledge 
+- Medical Language Understanding 
+- Medical Reasoning 
+- Medical Ethics and Safety 
+- Medical Text Generation 
+
+Each question in the test set is a JSON object with the following fields:
+
+- **category1**: Primary category of the question (e.g., "Medical Knowledge").
+- **category2**: Secondary category, providing more specific grouping.
+- **scene**: Scenario or context for the question.
+- **round**: Round number, used for multi-turn conversations (1 for single-turn).
+- **problem**: The medical question or prompt presented to the model.
+- **groupCode**: Group identifier for the question.
+- **sanswer**: The standard (reference) answer provided by medical experts.
+- **difficulty**: Difficulty level.
+- **checklist**: Key points or criteria for evaluation, ensuring the answer covers essential aspects.
+> **Note:**  
+> The scoring prompts for each category (e.g., Medical Knowledge, Medical Language Understanding, Medical Reasoning, Medical Ethics and Safety, Medical Text Generation) are defined directly in `evaluate/Evaluate.py`.  
+> Each prompt is carefully designed to guide the evaluation process and ensure consistency across different types of questions.
+
+Example:
+```json
+{
+  "category1": "Medical Knowledge",
+  "category2": "Basic Medical Knowledge/Medical Exam",
+  "scene": "Basic Medical Knowledge/Medical Exam_Traditional Chinese Medicine",
+  "round": 1,
+  "problem": "Why is β-OH anthraquinone more acidic than α-OH anthraquinone?",
+  "groupCode": 5,
+  "sanswer": "The stronger acidity of β-OH anthraquinone compared to α-OH anthraquinone is mainly due to resonance effects, hydrogen bonding, and steric hindrance...",
+  "difficulty": "Medium",
+  "checklist": "Core requirements:\n1. Explain the enhanced resonance effect, reduced hydrogen bonding, and steric hindrance for β-OH anthraquinone acidity.\n2. Detail how the β-OH position stabilizes the anion via resonance, and how the α-OH position's intramolecular hydrogen bond reduces acidity.\n\nSecondary requirements:\n1. Emphasize the role of the conjugated system and electron-withdrawing effects."
+}
+```
 
 ## 🛠️ Usage Guide
 
 ### 1. Getting Model Responses
 
-Use `Answer.py` to get responses from your LLM:
+Use `evaluate/Answer.py` to get responses from your LLM:
 
 ```bash
-python Answer.py
+python evaluate/Answer.py
 ```
 
 Key configurations in `Answer.py`:
@@ -52,7 +80,7 @@ Key configurations in `Answer.py`:
 - Adjust output paths in `inputs_dir` and `outputs_dir`
 
 The script will:
-- Load questions from `dataset.json`
+- Load questions from `dataset/dataset.json`
 - Generate responses using the specified model
 - Save results in JSON format
 - Handle multi-turn conversations using conversation history
@@ -60,10 +88,10 @@ The script will:
 
 ### 2. Evaluating Model Performance
 
-Use `Evaluate.py` to assess model responses:
+Use `evaluate/Evaluate.py` to assess model responses:
 
 ```bash
-python Evaluate.py
+python evaluate/Evaluate.py
 ```
 
 Key configurations in `Evaluate.py`:
@@ -142,4 +170,4 @@ For questions or suggestions, please:
 
   Ming Zhang: mingzhang23@m.fudan.edu.cn
 
-  Yujiong Shen: shenyj22@m.fudan.edu.cn 
+  Yujiong Shen: shenyj22@m.fudan.edu.cn
