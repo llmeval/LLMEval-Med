@@ -24,8 +24,6 @@ LLMEval-Med provides a comprehensive, physician-validated benchmark for evaluati
 
 ## 💾 Dataset Structure
 
-## 💾 Dataset Structure
-
 The `dataset/dataset.json` file contains a **test set** of 667 medical questions, organized by different categories:
 
 - Medical Knowledge 
