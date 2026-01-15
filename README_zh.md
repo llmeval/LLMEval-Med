@@ -2,14 +2,17 @@
 <h2>LLMEval-Med: A Real-world Clinical Benchmark for Medical LLMs with Physician Validation</h2>
 
 [![Paper](https://img.shields.io/badge/Paper-Arxiv-blue.svg?style=for-the-badge)](https://arxiv.org/abs/2506.04078)
+[![Dataset](https://img.shields.io/badge/Dataset-HuggingFace-yellow.svg?style=for-the-badge)](https://huggingface.co/datasets/HuayuSha/LLMeval-Med)
 
 </div>
+
+> 🎉 **最新消息：** 我们的论文已被 **EMNLP 2025 Findings** 录用！
 
 > **注意：** 英文版 README 请参阅 [README.md](README.md)。
 
 ## 📚 概述
 
-LLMEval-Med 提供了一个真实临床场景下、经过临床医生验证的大型语言模型评估基准。该数据集涵盖多种医疗任务，旨在帮助研究者对医疗领域的 LLM 进行严格、标准化的评估。更多基准设计、评估协议和基线结果，请参阅我们的 [论文](https://arxiv.org/abs/2506.04078)。
+LLMEval-Med 提供了一个真实临床场景下、经过临床医生验证的大型语言模型评估基准。该数据集涵盖多种医疗任务，旨在帮助研究者对医疗领域的 LLM 进行严格、标准化的评估。更多基准设计、评估协议和基线结果，请参阅我们的 [论文](https://arxiv.org/abs/2506.04078)。数据集也可在 [Hugging Face](https://huggingface.co/datasets/HuayuSha/LLMeval-Med) 上获取。
 
 ## 🗂️ 项目结构
 
@@ -161,3 +164,43 @@ python evaluate/Evaluate.py
   Ming Zhang: mingzhang23@m.fudan.edu.cn
 
   Yujiong Shen: shenyj22@m.fudan.edu.cn
+
+## 📝 引用
+
+如果您觉得本基准对您有帮助，请引用我们的论文：
+
+```bibtex
+@inproceedings{zhang-etal-2025-llmeval,
+    title = "{LLME}val-{M}ed: A Real-world Clinical Benchmark for Medical {LLM}s with Physician Validation",
+    author = "Zhang, Ming  and
+      Shen, Yujiong  and
+      Li, Zelin  and
+      Sha, Huayu  and
+      Hu, Binze  and
+      Wang, Yuhui  and
+      Huang, Chenhao  and
+      Liu, Shichun  and
+      Tong, Jingqi  and
+      Jiang, Changhao  and
+      Chai, Mingxu  and
+      Xi, Zhiheng  and
+      Dou, Shihan  and
+      Gui, Tao  and
+      Zhang, Qi  and
+      Huang, Xuanjing",
+    editor = "Christodoulopoulos, Christos  and
+      Chakraborty, Tanmoy  and
+      Rose, Carolyn  and
+      Peng, Violet",
+    booktitle = "Findings of the Association for Computational Linguistics: EMNLP 2025",
+    month = nov,
+    year = "2025",
+    address = "Suzhou, China",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.findings-emnlp.263/",
+    doi = "10.18653/v1/2025.findings-emnlp.263",
+    pages = "4888--4914",
+    ISBN = "979-8-89176-335-7",
+    abstract = "Evaluating large language models (LLMs) in medicine is crucial because medical applications require high accuracy with little room for error. Current medical benchmarks have three main types: medical exam-based, comprehensive medical, and specialized assessments. However, these benchmarks have limitations in question design (mostly multiple-choice), data sources (often not derived from real clinical scenarios), and evaluation methods (poor assessment of complex reasoning). To address these issues, we present LLMEval-Medicine, a new benchmark covering five core medical areas, including 2,996 questions created from real-world electronic health records and expert-designed clinical scenarios. We also design an automated evaluation pipeline, incorporating expert-developed checklists into our LLM-as-Judge framework. Furthermore, our methodology validates machine scoring through human-machine agreement analysis, dynamically refining checklists and prompts based on expert feedback to ensure reliability. We evaluate 13 LLMs across three categories (specialized medical models, open-source models, and closed-source models) on LLMEval-Med, providing valuable insights for the safe and effective deployment of LLMs in medical domains."
+}
+```

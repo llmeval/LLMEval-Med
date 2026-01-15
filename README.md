@@ -2,14 +2,17 @@
 <h2>LLMEval-Med: A Real-world Clinical Benchmark for Medical LLMs with Physician Validation</h2>
 
 [![Paper](https://img.shields.io/badge/Paper-Arxiv-blue.svg?style=for-the-badge)](https://arxiv.org/abs/2506.04078)
+[![Dataset](https://img.shields.io/badge/Dataset-HuggingFace-yellow.svg?style=for-the-badge)](https://huggingface.co/datasets/HuayuSha/LLMeval-Med)
 
 </div>
+
+> 🎉 **News:** Our paper has been accepted at **EMNLP 2025 Findings**!
 
 > **Note:** For the Chinese version of this README, please refer to [README_zh.md](README_zh.md).
 
 ## 📚 Overview
 
-LLMEval-Med provides a comprehensive, physician-validated benchmark for evaluating Large Language Models (LLMs) on real-world clinical tasks. The dataset covers a wide range of medical scenarios and is designed to facilitate rigorous, standardized assessment of medical LLMs. For details on the benchmark design, evaluation protocol, and baseline results, please refer to our [paper](https://arxiv.org/abs/2506.04078).
+LLMEval-Med provides a comprehensive, physician-validated benchmark for evaluating Large Language Models (LLMs) on real-world clinical tasks. The dataset covers a wide range of medical scenarios and is designed to facilitate rigorous, standardized assessment of medical LLMs. For details on the benchmark design, evaluation protocol, and baseline results, please refer to our [paper](https://arxiv.org/abs/2506.04078). The dataset is also available on [Hugging Face](https://huggingface.co/datasets/HuayuSha/LLMeval-Med).
 
 ## 🗂️ Project Structure
 
@@ -169,3 +172,43 @@ For questions or suggestions, please:
   Ming Zhang: mingzhang23@m.fudan.edu.cn
 
   Yujiong Shen: shenyj22@m.fudan.edu.cn
+
+## 📝 Citation
+
+If you find this benchmark useful, please cite our paper:
+
+```bibtex
+@inproceedings{zhang-etal-2025-llmeval,
+    title = "{LLME}val-{M}ed: A Real-world Clinical Benchmark for Medical {LLM}s with Physician Validation",
+    author = "Zhang, Ming  and
+      Shen, Yujiong  and
+      Li, Zelin  and
+      Sha, Huayu  and
+      Hu, Binze  and
+      Wang, Yuhui  and
+      Huang, Chenhao  and
+      Liu, Shichun  and
+      Tong, Jingqi  and
+      Jiang, Changhao  and
+      Chai, Mingxu  and
+      Xi, Zhiheng  and
+      Dou, Shihan  and
+      Gui, Tao  and
+      Zhang, Qi  and
+      Huang, Xuanjing",
+    editor = "Christodoulopoulos, Christos  and
+      Chakraborty, Tanmoy  and
+      Rose, Carolyn  and
+      Peng, Violet",
+    booktitle = "Findings of the Association for Computational Linguistics: EMNLP 2025",
+    month = nov,
+    year = "2025",
+    address = "Suzhou, China",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2025.findings-emnlp.263/",
+    doi = "10.18653/v1/2025.findings-emnlp.263",
+    pages = "4888--4914",
+    ISBN = "979-8-89176-335-7",
+    abstract = "Evaluating large language models (LLMs) in medicine is crucial because medical applications require high accuracy with little room for error. Current medical benchmarks have three main types: medical exam-based, comprehensive medical, and specialized assessments. However, these benchmarks have limitations in question design (mostly multiple-choice), data sources (often not derived from real clinical scenarios), and evaluation methods (poor assessment of complex reasoning). To address these issues, we present LLMEval-Medicine, a new benchmark covering five core medical areas, including 2,996 questions created from real-world electronic health records and expert-designed clinical scenarios. We also design an automated evaluation pipeline, incorporating expert-developed checklists into our LLM-as-Judge framework. Furthermore, our methodology validates machine scoring through human-machine agreement analysis, dynamically refining checklists and prompts based on expert feedback to ensure reliability. We evaluate 13 LLMs across three categories (specialized medical models, open-source models, and closed-source models) on LLMEval-Med, providing valuable insights for the safe and effective deployment of LLMs in medical domains."
+}
+```
