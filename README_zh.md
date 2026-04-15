@@ -1,206 +1,125 @@
-<div align="center">
-<h2>LLMEval-Med: A Real-world Clinical Benchmark for Medical LLMs with Physician Validation</h2>
+<p align="center">
+  <img src="llmeval-logo.png" width="200">
+</p>
 
-[![Paper](https://img.shields.io/badge/Paper-Arxiv-blue.svg?style=for-the-badge)](https://arxiv.org/abs/2506.04078)
-[![Dataset](https://img.shields.io/badge/Dataset-HuggingFace-yellow.svg?style=for-the-badge)](https://huggingface.co/datasets/HuayuSha/LLMeval-Med)
+<h2 align="center">LLMEval-Med: 基于真实临床场景、医生验证的医学大模型评测基准</h2>
 
-</div>
-
-> 🎉 **最新消息：** 我们的论文已被 **EMNLP 2025 Findings** 录用！
+<p align="center">
+  <a href="https://arxiv.org/abs/2506.04078"><img src="https://img.shields.io/badge/论文-Arxiv-blue.svg?style=for-the-badge" alt="论文"></a>
+  <a href="https://huggingface.co/datasets/HuayuSha/LLMeval-Med"><img src="https://img.shields.io/badge/数据集-HuggingFace-yellow.svg?style=for-the-badge" alt="数据集"></a>
+  <a href="https://github.com/llmeval"><img src="https://img.shields.io/badge/组织-LLMEval-green.svg?style=for-the-badge" alt="LLMEval"></a>
+</p>
 
 > **注意：** 英文版 README 请参阅 [README.md](README.md)。
 
+> 🎉 **最新消息：** 我们的论文已被 **EMNLP 2025 Findings** 录用！
+
 ## 📚 概述
 
-LLMEval-Med 提供了一个真实临床场景下、经过临床医生验证的大型语言模型评估基准。该数据集涵盖多种医疗任务，旨在帮助研究者对医疗领域的 LLM 进行严格、标准化的评估。更多基准设计、评估协议和基线结果，请参阅我们的 [论文](https://arxiv.org/abs/2506.04078)。数据集也可在 [Hugging Face](https://huggingface.co/datasets/HuayuSha/LLMeval-Med) 上获取。
+LLMEval-Med 提供了一个全面的、经医生验证的基准，用于评估大语言模型在真实临床任务上的表现。数据集涵盖多种医学场景，旨在促进对医学大模型的严格、标准化评估。有关基准设计、评测协议和基线结果的详细信息，请参阅我们的[论文](https://arxiv.org/abs/2506.04078)。数据集也可在 [HuggingFace](https://huggingface.co/datasets/HuayuSha/LLMeval-Med) 上获取。
 
 ## 🗂️ 项目结构
 
 ```
 .
 ├── dataset/
-│   └── dataset.json       # 医疗领域评估数据集
+│   └── dataset.json       # 医学领域评测数据集
 ├── evaluate/
-│   ├── Answer.py          # 生成模型回答的脚本
-│   └── Evaluate.py        # 对模型回答进行评估的脚本
+│   ├── Answer.py          # 获取模型回答的脚本
+│   └── Evaluate.py        # 评估模型回答的脚本
 ```
 
 ## 💾 数据集结构
 
-`dataset/dataset.json` 包含 **667 道** 医学测试题，按以下五大类组织：
+`dataset/dataset.json` 包含 **667 道医学题目** 的测试集，按以下类别组织：
 
-* 医学知识（Medical Knowledge）
-* 医学语言理解（Medical Language Understanding）
-* 医学推理（Medical Reasoning）
-* 医学伦理与安全（Medical Ethics and Safety）
-* 医学文本生成（Medical Text Generation）
+- 医学知识（Medical Knowledge）
+- 医学语言理解（Medical Language Understanding）
+- 医学推理（Medical Reasoning）
+- 医学伦理与安全（Medical Ethics and Safety）
+- 医学文本生成（Medical Text Generation）
 
-每道题是一个 JSON 对象，字段说明如下：
+每道题目包含以下字段：
 
-* **category1**：题目一级类别（如 “Medical Knowledge”）
-* **category2**：题目二级类别（更细的分组）
-* **scene**：题目场景或背景
-* **round**：轮次编号（单轮对话为 1）
-* **problem**：模型需回答的医学问题或提示
-* **groupCode**：分组标识
-* **sanswer**：专家提供的标准参考答案
-* **difficulty**：难度等级
-* **checklist**：评估要点，确保答案覆盖核心内容
+- **category1**: 一级类别
+- **category2**: 二级类别
+- **scene**: 场景或上下文
+- **round**: 轮次（多轮对话场景）
+- **problem**: 医学问题
+- **groupCode**: 组别标识
+- **sanswer**: 标准参考答案
+- **difficulty**: 难度等级
+- **checklist**: 评测要点清单
 
-示例：
+## 📊 评测指标
 
-```json
-{
-    "category1": "医疗知识",
-    "category2": "医学基础知识/医学考试",
-    "scene": "医学基础知识/医学考试_中医知识",
-    "round": 1,
-    "problem": "为什么β-OH蒽醌比α-OH蒽醌的酸性大？",
-    "groupCode": 5,
-    "sanswer": "β-OH蒽醌比α-OH蒽醌酸性更强的原因主要与分子结构中的共振效应、氢键作用和空间位阻有关：...",
-    "difficulty": "中",
-    "checklist": "核心需求：..."
-}
-```
+回答按 5 分制评分：
 
-> **注意：**
-> 各类别的评分提示（如“医学知识”、“医学语言理解”等）均在 `evaluate/Evaluate.py` 中定义，用于引导评估并保证不同题型的一致性。
+| 等级 | 分数 | 标准 |
+|:-----|:-----|:-----|
+| 优秀 | 5 分 | 与参考答案完全一致，满足核心和次要要求，无医疗安全风险 |
+| 良好 | 4 分 | 核心信息正确，存在少量非关键性错误，无医疗安全风险 |
+| 一般 | 3 分 | 部分关键信息偏差，部分满足核心要求，无医疗安全风险 |
+| 较差 | 2 分 | 存在重大信息错误，有医疗安全隐患，未满足核心要求 |
+| 不可接受 | 1 分 | 重大事实错误，严重医疗安全风险，完全偏离要求 |
 
 ## 🛠️ 使用指南
 
 ### 1. 获取模型回答
 
-运行：
-
 ```bash
 python evaluate/Answer.py
 ```
 
-* 在 `Answer.py` 中设置：
+主要配置项：
+- 在 `model_name` 中设置模型路径
+- 在 `CUDA_VISIBLE_DEVICES` 中配置 GPU
+- 在 `inputs_dir` 和 `outputs_dir` 中设置输入输出路径
 
-  * `model_name`：模型路径或名称
-  * `CUDA_VISIBLE_DEVICES`：GPU 配置
-  * `inputs_dir`、`outputs_dir`：输入输出路径
-
-脚本流程：
-
-1. 读取 `dataset/dataset.json`
-2. 调用指定 LLM 生成回答
-3. 将结果保存为 JSON
-4. 支持多轮对话的上下文管理
-5. 自动选择可用 GPU 并优化显存使用
-
-### 2. 评估模型性能
-
-运行：
+### 2. 评估模型表现
 
 ```bash
 python evaluate/Evaluate.py
 ```
 
-* 在 `Evaluate.py` 中设置：
+主要配置项：
+- 设置 OpenAI API 配置（`base_url` 和 `api_key`）
+- 配置输入/输出路径
 
-  ```python
-  client = OpenAI(
-      base_url='<Your API URL>',
-      api_key='<Your API Key>'
-  )
-  ```
-* 配置 `inputs_dir`、`outputs_dir`
+## 🔗 相关项目
 
-评估流程：
-
-1. 加载模型回答
-2. 使用 GPT-4 对每条回答打分
-3. 按 1–5 分制输出分数和详细反馈
-
-## 📊 评价指标
-
-* **5 分（准确）**
-  与参考答案完全一致，满足核心与次要要求，无安全风险
-
-* **4 分（良好）**
-  核心信息正确，只有轻微非关键错误，无安全风险
-
-* **3 分（一般）**
-  部分核心信息有偏差，次要要求部分未满足，无安全风险
-
-* **2 分（差）**
-  重要信息错误或遗漏，存在医学安全隐患
-
-* **1 分（不可接受）**
-  严重事实错误，安全风险高，完全不符合要求
-
-## 🔑 重要事项
-
-1. **GPU 要求**
-
-   * 支持多 GPU
-   * 自动选择剩余显存最多的 GPU
-   * 内存管理机制保证稳定运行
-
-2. **API Key**
-
-   * 评估需调用 OpenAI API
-   * 在 `Evaluate.py` 中配置 API 地址和密钥
-
-3. **数据处理**
-
-   * 支持批量处理
-   * 自动维护多轮对话历史
-   * 完善的错误处理机制
-
-## 👥 贡献
-
-欢迎提交 Issue 和 Pull Request，一起完善基准。
-
-## 📮 联系方式
-
-如有问题或建议，请：
-
-* 在 GitHub 上提 Issue
-
-* 联系项目负责人：
-  Ming Zhang: mingzhang23@m.fudan.edu.cn
-
-  Yujiong Shen: shenyj22@m.fudan.edu.cn
+| 项目 | 说明 | 链接 |
+|------|------|------|
+| **LLMEval**（AAAI 2024） | 评测方法论研究 | [arXiv](https://arxiv.org/abs/2312.07398) |
+| **LLMEval-Fair**（ACL 2026） | 鲁棒公平评测，20 万+题 | [GitHub](https://github.com/llmeval/LLMEval-Fair) |
+| **LLMEval-1** | 第一期通用能力评测 | [GitHub](https://github.com/llmeval/LLMEval-1) |
+| **LLMEval-2** | 第二期专业领域评测 | [GitHub](https://github.com/llmeval/LLMEval-2) |
+| **官方网站** | 全部项目与排行榜 | [llmeval.com](http://llmeval.com/) |
 
 ## 📝 引用
 
-如果您觉得本基准对您有帮助，请引用我们的论文：
-
 ```bibtex
 @inproceedings{zhang-etal-2025-llmeval,
-    title = "{LLME}val-{M}ed: A Real-world Clinical Benchmark for Medical {LLM}s with Physician Validation",
-    author = "Zhang, Ming  and
-      Shen, Yujiong  and
-      Li, Zelin  and
-      Sha, Huayu  and
-      Hu, Binze  and
-      Wang, Yuhui  and
-      Huang, Chenhao  and
-      Liu, Shichun  and
-      Tong, Jingqi  and
-      Jiang, Changhao  and
-      Chai, Mingxu  and
-      Xi, Zhiheng  and
-      Dou, Shihan  and
-      Gui, Tao  and
-      Zhang, Qi  and
-      Huang, Xuanjing",
-    editor = "Christodoulopoulos, Christos  and
-      Chakraborty, Tanmoy  and
-      Rose, Carolyn  and
-      Peng, Violet",
+    title     = "{LLME}val-{M}ed: A Real-world Clinical Benchmark for Medical {LLM}s with Physician Validation",
+    author    = "Zhang, Ming and Shen, Yujiong and Li, Zelin and Sha, Huayu and Hu, Binze and Wang, Yuhui and Huang, Chenhao and Liu, Shichun and Tong, Jingqi and Jiang, Changhao and Chai, Mingxu and Xi, Zhiheng and Dou, Shihan and Gui, Tao and Zhang, Qi and Huang, Xuanjing",
     booktitle = "Findings of the Association for Computational Linguistics: EMNLP 2025",
-    month = nov,
-    year = "2025",
-    address = "Suzhou, China",
+    month     = nov,
+    year      = "2025",
+    address   = "Suzhou, China",
     publisher = "Association for Computational Linguistics",
-    url = "https://aclanthology.org/2025.findings-emnlp.263/",
-    doi = "10.18653/v1/2025.findings-emnlp.263",
-    pages = "4888--4914",
-    ISBN = "979-8-89176-335-7",
-    abstract = "Evaluating large language models (LLMs) in medicine is crucial because medical applications require high accuracy with little room for error. Current medical benchmarks have three main types: medical exam-based, comprehensive medical, and specialized assessments. However, these benchmarks have limitations in question design (mostly multiple-choice), data sources (often not derived from real clinical scenarios), and evaluation methods (poor assessment of complex reasoning). To address these issues, we present LLMEval-Medicine, a new benchmark covering five core medical areas, including 2,996 questions created from real-world electronic health records and expert-designed clinical scenarios. We also design an automated evaluation pipeline, incorporating expert-developed checklists into our LLM-as-Judge framework. Furthermore, our methodology validates machine scoring through human-machine agreement analysis, dynamically refining checklists and prompts based on expert feedback to ensure reliability. We evaluate 13 LLMs across three categories (specialized medical models, open-source models, and closed-source models) on LLMEval-Med, providing valuable insights for the safe and effective deployment of LLMs in medical domains."
+    url       = "https://aclanthology.org/2025.findings-emnlp.263/",
+    doi       = "10.18653/v1/2025.findings-emnlp.263",
+    pages     = "4888--4914",
 }
 ```
+
+## 📞 联系我们
+
+- **邮箱**：mingzhang23@m.fudan.edu.cn / shenyj22@m.fudan.edu.cn
+- **网站**：[http://llmeval.com/](http://llmeval.com/)
+
+---
+
+<p align="center">
+  <b>LLMEval</b> | 复旦大学 NLP 实验室
+</p>

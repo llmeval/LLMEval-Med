@@ -1,10 +1,14 @@
-<div align="center">
-<h2>LLMEval-Med: A Real-world Clinical Benchmark for Medical LLMs with Physician Validation</h2>
+<p align="center">
+  <img src="llmeval-logo.png" width="200">
+</p>
 
-[![Paper](https://img.shields.io/badge/Paper-Arxiv-blue.svg?style=for-the-badge)](https://arxiv.org/abs/2506.04078)
-[![Dataset](https://img.shields.io/badge/Dataset-HuggingFace-yellow.svg?style=for-the-badge)](https://huggingface.co/datasets/HuayuSha/LLMeval-Med)
+<h2 align="center">LLMEval-Med: A Real-world Clinical Benchmark for Medical LLMs with Physician Validation</h2>
 
-</div>
+<p align="center">
+  <a href="https://arxiv.org/abs/2506.04078"><img src="https://img.shields.io/badge/Paper-Arxiv-blue.svg?style=for-the-badge" alt="Paper"></a>
+  <a href="https://huggingface.co/datasets/HuayuSha/LLMeval-Med"><img src="https://img.shields.io/badge/Dataset-HuggingFace-yellow.svg?style=for-the-badge" alt="Dataset"></a>
+  <a href="https://github.com/llmeval"><img src="https://img.shields.io/badge/Org-LLMEval-green.svg?style=for-the-badge" alt="LLMEval"></a>
+</p>
 
 > 🎉 **News:** Our paper has been accepted at **EMNLP 2025 Findings**!
 
@@ -212,3 +216,19 @@ If you find this benchmark useful, please cite our paper:
     abstract = "Evaluating large language models (LLMs) in medicine is crucial because medical applications require high accuracy with little room for error. Current medical benchmarks have three main types: medical exam-based, comprehensive medical, and specialized assessments. However, these benchmarks have limitations in question design (mostly multiple-choice), data sources (often not derived from real clinical scenarios), and evaluation methods (poor assessment of complex reasoning). To address these issues, we present LLMEval-Medicine, a new benchmark covering five core medical areas, including 2,996 questions created from real-world electronic health records and expert-designed clinical scenarios. We also design an automated evaluation pipeline, incorporating expert-developed checklists into our LLM-as-Judge framework. Furthermore, our methodology validates machine scoring through human-machine agreement analysis, dynamically refining checklists and prompts based on expert feedback to ensure reliability. We evaluate 13 LLMs across three categories (specialized medical models, open-source models, and closed-source models) on LLMEval-Med, providing valuable insights for the safe and effective deployment of LLMs in medical domains."
 }
 ```
+
+## 🔗 Related Projects
+
+| Project | Description | Link |
+|---------|-------------|------|
+| **LLMEval** (AAAI 2024) | Foundational evaluation methodology paper | [arXiv](https://arxiv.org/abs/2312.07398) |
+| **LLMEval-Fair** (ACL 2026) | Robust & fair evaluation, 200K+ questions | [GitHub](https://github.com/llmeval/LLMEval-Fair) |
+| **LLMEval-1** | Phase I: General capability evaluation | [GitHub](https://github.com/llmeval/LLMEval-1) |
+| **LLMEval-2** | Phase II: Professional domain evaluation | [GitHub](https://github.com/llmeval/LLMEval-2) |
+| **Official Website** | All projects & leaderboard | [llmeval.com](http://llmeval.com/) |
+
+---
+
+<p align="center">
+  <b>LLMEval</b> | Fudan University NLP Lab
+</p>
