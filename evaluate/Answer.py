@@ -45,28 +45,35 @@ def clear_cuda_cache():
     """ Clear unused GPU memory """
     torch.cuda.empty_cache()
 
-def getresponse(prompt, history):
-    prompt =  history + prompt
-    messages = [
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": prompt}
-    ]
+def getresponse(question, history):
+    # history is a list of (past_question, past_answer) tuples for the same groupCode.
+    # We feed it through apply_chat_template so each turn carries its proper role,
+    # instead of concatenating raw strings (which dropped the previous question).
+    messages = [{"role": "system", "content": "You are a helpful assistant."}]
+    for past_q, past_a in history:
+        messages.append({"role": "user", "content": past_q})
+        messages.append({"role": "assistant", "content": past_a})
+    messages.append({"role": "user", "content": question})
 
     prompt = model.tokenizer.apply_chat_template(
         messages,
         tokenize=False,
-        add_generation_prompt=True
+        add_generation_prompt=True,
     )
 
+    # return_full_text=False makes the pipeline return only the newly generated
+    # tokens, avoiding the fragile `generated_text[len(prompt):]` slicing which
+    # can break after apply_chat_template due to tokenizer encode/decode
+    # normalization of special tokens and whitespace.
     outputs = model(
         prompt,
         max_new_tokens=2048,
         eos_token_id=model.tokenizer.eos_token_id,
-        do_sample=True
+        do_sample=True,
+        return_full_text=False,
     )
 
-    response = outputs[0]["generated_text"][len(prompt):]
-    return response
+    return outputs[0]["generated_text"].strip()
 
 def load_json(filepath):
     """
@@ -170,23 +177,21 @@ if __name__ == '__main__':
         output_data = {}
 
         for key in tqdm(queries_list, desc="Processing query types"):
+            # groupCode -> list of (question, answer) pairs for prior turns
             resp_history = {}
-            reqtosave = {}
-            reqall = []
             output_data[key] = []
             for req in tqdm(queries_list[key], desc="Progress"):
                 question = req["problem"]
                 groupCode = req["groupCode"]
                 round = req["round"]
                 if round > 1:
-                    history = resp_history.get(str(groupCode), "")
+                    history = resp_history.get(str(groupCode), [])
                 else:
-                    history = ""
+                    history = []
                 resp = getresponse(question, history)
+                resp_history.setdefault(str(groupCode), []).append((question, resp))
                 reqtosave = req
-                resp_history[str(groupCode)] = resp_history.get(str(groupCode), "") + "答:" + resp + "\n" + "问:" # "答:" is Answer, "问:" is Question
-                keystr = f"model_answer" 
-                reqtosave[keystr] = resp
+                reqtosave["model_answer"] = resp
                 output_data[key].append(reqtosave)
 
         # Save output data
