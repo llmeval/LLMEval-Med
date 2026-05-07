@@ -26,7 +26,8 @@ LLMEval-Med provides a comprehensive, physician-validated benchmark for evaluati
 │   └── dataset.json       # Medical domain evaluation dataset
 ├── evaluate/
 │   ├── Answer.py          # Script for getting model responses
-│   └── Evaluate.py        # Script for evaluating model responses
+│   ├── Evaluate.py        # Script for scoring model responses (1-5 per question)
+│   └── Aggregate.py       # Script for aggregating scores into Usability Rate / OP
 ```
 
 ## 💾 Dataset Structure
@@ -114,6 +115,21 @@ The evaluation process:
 2. Evaluates each response using GPT-4
 3. Assigns scores on a 5-point scale
 4. Provides detailed feedback for each response
+
+### 3. Aggregating into Overall Performance (OP)
+
+`evaluate/Evaluate.py` only produces per-question 1–5 scores. Use `evaluate/Aggregate.py` to turn those scores into the per-category Usability Rate and Overall Performance (OP) numbers reported in Table 2 of the paper:
+
+```bash
+# Single judging run
+python evaluate/Aggregate.py path/to/dataset_processed_score.json
+
+# Three judging runs (the paper's protocol): per-question scores are
+# averaged across runs before the >=4 usability threshold is applied.
+python evaluate/Aggregate.py run1.json run2.json run3.json --out summary.json
+```
+
+A response is counted as **usable** when its averaged 0–5 score is ≥ 4 (for MK / MLU / MR / MSE). For MTG the paper additionally maps a 5-dimension human evaluation through the Appendix D piecewise formula (threshold ≥ 5, with `Safety = 1` as a hard veto); a helper `mtg_score_from_human_eval` is provided in `Aggregate.py` for that case. **OP** is the sample-count-weighted usability rate across all questions.
 
 ## 📊 Evaluation Metrics
 
