@@ -7,6 +7,7 @@
 <p align="center">
   <a href="https://arxiv.org/abs/2506.04078"><img src="https://img.shields.io/badge/论文-Arxiv-blue.svg?style=for-the-badge" alt="论文"></a>
   <a href="https://huggingface.co/datasets/HuayuSha/LLMeval-Med"><img src="https://img.shields.io/badge/数据集-HuggingFace-yellow.svg?style=for-the-badge" alt="数据集"></a>
+  <a href="https://llmeval.com/"><img src="https://img.shields.io/badge/官网-llmeval.com-2ea44f.svg?style=for-the-badge" alt="官网"></a>
   <a href="https://github.com/llmeval"><img src="https://img.shields.io/badge/组织-LLMEval-green.svg?style=for-the-badge" alt="LLMEval"></a>
 </p>
 
@@ -109,7 +110,7 @@ python evaluate/Aggregate.py run1.json run2.json run3.json --out summary.json
 | **LLMEval-Fair**（ACL 2026） | 鲁棒公平评测，20 万+题 | [GitHub](https://github.com/llmeval/LLMEval-Fair) |
 | **LLMEval-1** | 第一期通用能力评测 | [GitHub](https://github.com/llmeval/LLMEval-1) |
 | **LLMEval-2** | 第二期专业领域评测 | [GitHub](https://github.com/llmeval/LLMEval-2) |
-| **官方网站** | 全部项目与排行榜 | [llmeval.com](http://llmeval.com/) |
+| **官方网站** | 全部项目与排行榜 | [llmeval.com](https://llmeval.com/) |
 
 ## 📝 引用
 
@@ -131,7 +132,7 @@ python evaluate/Aggregate.py run1.json run2.json run3.json --out summary.json
 ## 📞 联系我们
 
 - **邮箱**：mingzhang23@m.fudan.edu.cn / shenyj22@m.fudan.edu.cn
-- **网站**：[http://llmeval.com/](http://llmeval.com/)
+- **网站**：[https://llmeval.com/](https://llmeval.com/)
 
 ---
 

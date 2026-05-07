@@ -7,6 +7,7 @@
 <p align="center">
   <a href="https://arxiv.org/abs/2506.04078"><img src="https://img.shields.io/badge/Paper-Arxiv-blue.svg?style=for-the-badge" alt="Paper"></a>
   <a href="https://huggingface.co/datasets/HuayuSha/LLMeval-Med"><img src="https://img.shields.io/badge/Dataset-HuggingFace-yellow.svg?style=for-the-badge" alt="Dataset"></a>
+  <a href="https://llmeval.com/"><img src="https://img.shields.io/badge/Website-llmeval.com-2ea44f.svg?style=for-the-badge" alt="Website"></a>
   <a href="https://github.com/llmeval"><img src="https://img.shields.io/badge/Org-LLMEval-green.svg?style=for-the-badge" alt="LLMEval"></a>
 </p>
 
@@ -241,7 +242,7 @@ If you find this benchmark useful, please cite our paper:
 | **LLMEval-Fair** (ACL 2026) | Robust & fair evaluation, 200K+ questions | [GitHub](https://github.com/llmeval/LLMEval-Fair) |
 | **LLMEval-1** | Phase I: General capability evaluation | [GitHub](https://github.com/llmeval/LLMEval-1) |
 | **LLMEval-2** | Phase II: Professional domain evaluation | [GitHub](https://github.com/llmeval/LLMEval-2) |
-| **Official Website** | All projects & leaderboard | [llmeval.com](http://llmeval.com/) |
+| **Official Website** | All projects & leaderboard | [llmeval.com](https://llmeval.com/) |
 
 ---
 
