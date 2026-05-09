@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://arxiv.org/abs/2506.04078"><img src="https://img.shields.io/badge/Paper-Arxiv-blue.svg?style=for-the-badge" alt="Paper"></a>
-  <a href="https://huggingface.co/datasets/HuayuSha/LLMeval-Med"><img src="https://img.shields.io/badge/Dataset-HuggingFace-yellow.svg?style=for-the-badge" alt="Dataset"></a>
+  <a href="https://huggingface.co/datasets/llmeval-fdu/LLMEval-Med"><img src="https://img.shields.io/badge/Dataset-HuggingFace-yellow.svg?style=for-the-badge" alt="Dataset"></a>
   <a href="https://llmeval.com/"><img src="https://img.shields.io/badge/Website-llmeval.com-2ea44f.svg?style=for-the-badge" alt="Website"></a>
   <a href="https://github.com/llmeval"><img src="https://img.shields.io/badge/Org-LLMEval-green.svg?style=for-the-badge" alt="LLMEval"></a>
 </p>
@@ -17,7 +17,7 @@
 
 ## 📚 Overview
 
-LLMEval-Med provides a comprehensive, physician-validated benchmark for evaluating Large Language Models (LLMs) on real-world clinical tasks. The dataset covers a wide range of medical scenarios and is designed to facilitate rigorous, standardized assessment of medical LLMs. For details on the benchmark design, evaluation protocol, and baseline results, please refer to our [paper](https://arxiv.org/abs/2506.04078). The dataset is also available on [Hugging Face](https://huggingface.co/datasets/HuayuSha/LLMeval-Med).
+LLMEval-Med provides a comprehensive, physician-validated benchmark for evaluating Large Language Models (LLMs) on real-world clinical tasks. The dataset covers a wide range of medical scenarios and is designed to facilitate rigorous, standardized assessment of medical LLMs. For details on the benchmark design, evaluation protocol, and baseline results, please refer to our [paper](https://arxiv.org/abs/2506.04078). The dataset is also available on [Hugging Face](https://huggingface.co/datasets/llmeval-fdu/LLMEval-Med).
 
 ## 🗂️ Project Structure
 

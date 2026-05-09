@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://arxiv.org/abs/2506.04078"><img src="https://img.shields.io/badge/论文-Arxiv-blue.svg?style=for-the-badge" alt="论文"></a>
-  <a href="https://huggingface.co/datasets/HuayuSha/LLMeval-Med"><img src="https://img.shields.io/badge/数据集-HuggingFace-yellow.svg?style=for-the-badge" alt="数据集"></a>
+  <a href="https://huggingface.co/datasets/llmeval-fdu/LLMEval-Med"><img src="https://img.shields.io/badge/数据集-HuggingFace-yellow.svg?style=for-the-badge" alt="数据集"></a>
   <a href="https://llmeval.com/"><img src="https://img.shields.io/badge/官网-llmeval.com-2ea44f.svg?style=for-the-badge" alt="官网"></a>
   <a href="https://github.com/llmeval"><img src="https://img.shields.io/badge/组织-LLMEval-green.svg?style=for-the-badge" alt="LLMEval"></a>
 </p>
@@ -17,7 +17,7 @@
 
 ## 📚 概述
 
-LLMEval-Med 提供了一个全面的、经医生验证的基准，用于评估大语言模型在真实临床任务上的表现。数据集涵盖多种医学场景，旨在促进对医学大模型的严格、标准化评估。有关基准设计、评测协议和基线结果的详细信息，请参阅我们的[论文](https://arxiv.org/abs/2506.04078)。数据集也可在 [HuggingFace](https://huggingface.co/datasets/HuayuSha/LLMeval-Med) 上获取。
+LLMEval-Med 提供了一个全面的、经医生验证的基准，用于评估大语言模型在真实临床任务上的表现。数据集涵盖多种医学场景，旨在促进对医学大模型的严格、标准化评估。有关基准设计、评测协议和基线结果的详细信息，请参阅我们的[论文](https://arxiv.org/abs/2506.04078)。数据集也可在 [HuggingFace](https://huggingface.co/datasets/llmeval-fdu/LLMEval-Med) 上获取。
 
 ## 🗂️ 项目结构
 
