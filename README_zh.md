@@ -104,13 +104,14 @@ python evaluate/Aggregate.py run1.json run2.json run3.json --out summary.json
 
 ## 🔗 相关项目
 
-| 项目 | 说明 | 链接 |
-|------|------|------|
-| **LLMEval**（AAAI 2024） | 评测方法论研究 | [arXiv](https://arxiv.org/abs/2312.07398) |
-| **LLMEval-Fair**（ACL 2026） | 鲁棒公平评测，20 万+题 | [GitHub](https://github.com/llmeval/LLMEval-Fair) |
-| **LLMEval-1** | 第一期通用能力评测 | [GitHub](https://github.com/llmeval/LLMEval-1) |
-| **LLMEval-2** | 第二期专业领域评测 | [GitHub](https://github.com/llmeval/LLMEval-2) |
-| **官方网站** | 全部项目与排行榜 | [llmeval.com](https://llmeval.com/) |
+| 项目 | 简介 | 论文 | 代码 |
+|------|------|------|------|
+| **LLMEval-Logic**（在投） | Z3 求解器验证的中文逻辑推理基准 | — | [GitHub](https://github.com/llmeval/LLMEval-Logic) |
+| **LLMEval-Fair**（ACL 2026 主会） | 鲁棒公平评测，覆盖 13 个学科、20 万+ 题目 | [arXiv](https://arxiv.org/abs/2508.05452) | [GitHub](https://github.com/llmeval/LLMEval-Fair) |
+| **LLMEval-2**（AAAI 2024） | 第二期：专业领域评测 | [arXiv](https://arxiv.org/abs/2312.07398) | [GitHub](https://github.com/llmeval/LLMEval-2) |
+| **LLMEval-1**（AAAI 2024） | 第一期：通用能力评测 | [arXiv](https://arxiv.org/abs/2312.07398) | [GitHub](https://github.com/llmeval/LLMEval-1) |
+
+完整项目列表与排行榜：[llmeval.com](https://llmeval.com/) · 所有数据集托管于 [🤗 llmeval-fdu](https://huggingface.co/llmeval-fdu)
 
 ## 📝 引用
 

@@ -236,13 +236,14 @@ If you find this benchmark useful, please cite our paper:
 
 ## 🔗 Related Projects
 
-| Project | Description | Link |
-|---------|-------------|------|
-| **LLMEval** (AAAI 2024) | Foundational evaluation methodology paper | [arXiv](https://arxiv.org/abs/2312.07398) |
-| **LLMEval-Fair** (ACL 2026) | Robust & fair evaluation, 200K+ questions | [GitHub](https://github.com/llmeval/LLMEval-Fair) |
-| **LLMEval-1** | Phase I: General capability evaluation | [GitHub](https://github.com/llmeval/LLMEval-1) |
-| **LLMEval-2** | Phase II: Professional domain evaluation | [GitHub](https://github.com/llmeval/LLMEval-2) |
-| **Official Website** | All projects & leaderboard | [llmeval.com](https://llmeval.com/) |
+| Project | Description | Paper | Code |
+|---------|-------------|-------|------|
+| **LLMEval-Logic** (Under submission) | Solver-verified Chinese logical-reasoning benchmark | — | [GitHub](https://github.com/llmeval/LLMEval-Logic) |
+| **LLMEval-Fair** (ACL 2026 Main) | Robust & fair evaluation across 13 disciplines, 200K+ questions | [arXiv](https://arxiv.org/abs/2508.05452) | [GitHub](https://github.com/llmeval/LLMEval-Fair) |
+| **LLMEval-2** (AAAI 2024) | Phase II: Professional domain evaluation | [arXiv](https://arxiv.org/abs/2312.07398) | [GitHub](https://github.com/llmeval/LLMEval-2) |
+| **LLMEval-1** (AAAI 2024) | Phase I: General capability evaluation | [arXiv](https://arxiv.org/abs/2312.07398) | [GitHub](https://github.com/llmeval/LLMEval-1) |
+
+Full project list & leaderboard: [llmeval.com](https://llmeval.com/) · All datasets: [🤗 llmeval-fdu](https://huggingface.co/llmeval-fdu)
 
 ---
 
