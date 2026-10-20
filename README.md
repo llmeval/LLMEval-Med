@@ -238,7 +238,6 @@ If you find this benchmark useful, please cite our paper:
 
 | Project | Description | Paper | Code |
 |---------|-------------|-------|------|
-| **LLMEval-Logic** (arXiv 2026) | Solver-verified Chinese logical-reasoning benchmark | [arXiv](https://arxiv.org/abs/2605.19597) | [GitHub](https://github.com/llmeval/LLMEval-Logic) |
 | **LLMEval-Fair** (ACL 2026 Main) | Robust & fair evaluation across 13 disciplines, 200K+ questions | [arXiv](https://arxiv.org/abs/2508.05452) | [GitHub](https://github.com/llmeval/LLMEval-Fair) |
 | **LLMEval-2** (AAAI 2024) | Phase II: Professional domain evaluation | [arXiv](https://arxiv.org/abs/2312.07398) | [GitHub](https://github.com/llmeval/LLMEval-2) |
 | **LLMEval-1** (AAAI 2024) | Phase I: General capability evaluation | [arXiv](https://arxiv.org/abs/2312.07398) | [GitHub](https://github.com/llmeval/LLMEval-1) |
